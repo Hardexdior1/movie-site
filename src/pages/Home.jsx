@@ -3,8 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Hero from "./Hero";
 import { format } from "date-fns";
-import { FaBookmark } from "react-icons/fa";
-import MovieSearch from "./MovieSearch";
+
 const Home = () => {
   const TMDB_ACCESS_TOKEN =
     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODhlMWE2OGUwNDRkYTQxMjI1OWZlNzNhN2E0ZTA4OSIsIm5iZiI6MTcyMzE1Mzg1Mi40OTc0ODQsInN1YiI6IjY2YjUzYzYyZmRjOGYwMzA4ZjU3YTk1OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ML474-USalWWnvPURoZAGq9D4fIHHlFilAKp1rhHmDQ";
@@ -13,23 +12,10 @@ const Home = () => {
   const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [topRated, setTopRated] = useState([]);
 
-  const [nowPlaying, setNowPlaying] = useState([]);
 
-  const allData = [
-    ...popularMovies,
-    ...upcomingMovies,
-    ...topRated,
-    ...nowPlaying,
-  ];
-  // console.log(allData);
-  const [bg, setBg] = useState(null);
-  useEffect(() => {
-    const index = Math.floor(Math.random() * allData.length);
-    setBg(index);
-  }, [allData.length]);
 
-  const background = allData[bg];
-  console.log(background);
+  
+ 
 
   // sources
   let popular = "popular";
@@ -96,7 +82,7 @@ const Home = () => {
             },
           }
         );
-        setNowPlaying(response.data.results);
+        // setNowPlaying(response.data.results);
         // console.log(response.data.results);
       } catch (error) {
         console.error("Error fetching data from TMDb:", error);
@@ -106,10 +92,9 @@ const Home = () => {
     fetchPopularMovies();
     fetchUpcomingMovies();
     fetchTopRatedMovies();
-  }, []);
+  }, [popular,top_rated,upcoming]);
 
   //
-
   return (
     <div>
       {/* <MovieSearch /> */}

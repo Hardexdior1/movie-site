@@ -1,6 +1,6 @@
 
 import Home from "./pages/Home";
-import { BrowserRouter,  Link,  Route, Routes } from "react-router-dom";
+import { BrowserRouter,   Route, Routes } from "react-router-dom";
 import MovieDetail from "./MovieDetail";
 import Search from "./pages/Search";
 const App = () => {

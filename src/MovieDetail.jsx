@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import nullImg from "../src/images/null-img.png";
 import { FaPlay } from "react-icons/fa";
 
@@ -59,7 +58,6 @@ const MovieDetail = () => {
           backgroundSize: "cover",
           //   opacity: 0.5,
         }}>
-        {/* <div className="absolute inset-0 bg-black opacity-40"></div> */}
         <div className="z-20 relative">
           <img
             src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
@@ -129,25 +127,16 @@ const MovieDetail = () => {
       <h1 className="mb-4 font-bold text-2xl"> Casts </h1>
 
       <div className="grid gap-6 px-6 md:grid-cols-2 lg:grid-cols-4">
-        {/* <Carousel responsive={responsive}> */}
         {credits?.cast.map((cast) => {
           return (
             <div key={cast.id} className="shadow-md   bg-white">
               <div>
-                {/* <img
-                    className="rounded  w-full"
-                    src={
-                      cast.profile_path
-                        ? `https://image.tmdb.org/t/p/w200${cast.profile_path}`
-                        : nullImg
-                    }
-                    alt={cast.original_name}
-                  /> */}
+               
                 <img
-                  className="rounded w-full object-cover" // Adjust the width with Tailwind classes
+                  className="rounded w-full object-cover" 
                   src={
                     cast.profile_path
-                      ? `https://image.tmdb.org/t/p/original${cast.profile_path}` // Use original size and let Tailwind handle the width
+                      ? `https://image.tmdb.org/t/p/original${cast.profile_path}` 
                       : nullImg
                   }
                   alt={cast.original_name}
@@ -168,7 +157,6 @@ const MovieDetail = () => {
             </div>
           );
         })}
-        {/* </Carousel> */}
       </div>
     </div>
   );
