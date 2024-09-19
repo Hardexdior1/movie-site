@@ -72,23 +72,7 @@ const Home = () => {
         console.error("Error fetching data from TMDb:", error);
       }
     };
-    const now_playing = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/tv/popular`,
-          {
-            headers: {
-              Authorization: `Bearer ${TMDB_ACCESS_TOKEN}`,
-            },
-          }
-        );
-        // setNowPlaying(response.data.results);
-        // console.log(response.data.results);
-      } catch (error) {
-        console.error("Error fetching data from TMDb:", error);
-      }
-    };
-    now_playing();
+    
     fetchPopularMovies();
     fetchUpcomingMovies();
     fetchTopRatedMovies();
